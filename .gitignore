@@ -1,2 +1,6 @@
 *.user
 .vscode/
+_codeql_detected_source_root
+build/
+install/
+log/
