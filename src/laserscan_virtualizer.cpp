@@ -30,7 +30,7 @@
 using namespace std::chrono_literals;
 using std::placeholders::_1;
 
-typedef pcl::PointCloud<pcl::PointXYZ> MyPointCloud;
+using PointCloudXYZ = pcl::PointCloud<pcl::PointXYZ>;
 
 class LaserscanVirtualizer : public rclcpp::Node
 {
@@ -207,7 +207,7 @@ void LaserscanVirtualizer::pointCloudCallback(const sensor_msgs::msg::PointCloud
 
     for (size_t i = 0; i < output_frames_.size(); i++)
     {
-        MyPointCloud pcl_out, tmp_pcl;
+        PointCloudXYZ pcl_out, tmp_pcl;
         pcl::PCLPointCloud2 tmp_pcl2;
 
         // Convert ROS2 PointCloud2 to PCL

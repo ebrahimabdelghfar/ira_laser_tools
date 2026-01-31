@@ -227,7 +227,7 @@ void LaserscanMerger::scanCallback(const sensor_msgs::msg::LaserScan::SharedPtr 
     }
 
     // Count how many scans we have received
-    int total_clouds = 0;
+    size_t total_clouds = 0;
     for (size_t i = 0; i < clouds_modified_.size(); i++)
     {
         if (clouds_modified_[i])
@@ -235,7 +235,7 @@ void LaserscanMerger::scanCallback(const sensor_msgs::msg::LaserScan::SharedPtr 
     }
 
     // Proceed only if all subscribed scans have arrived
-    if (static_cast<size_t>(total_clouds) == clouds_modified_.size())
+    if (total_clouds == clouds_modified_.size())
     {
         pcl::PCLPointCloud2 merged_cloud = clouds_[0];
         clouds_modified_[0] = false;

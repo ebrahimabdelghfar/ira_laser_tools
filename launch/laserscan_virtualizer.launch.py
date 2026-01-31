@@ -9,6 +9,7 @@ def generate_launch_description():
     """Generate launch description for laserscan_virtualizer."""
     return LaunchDescription([
         # Static transform publishers
+        # Arguments: x y z yaw pitch roll parent_frame child_frame
         Node(
             package='tf2_ros',
             executable='static_transform_publisher',
